@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-img src="../assets/icon/logo.jpeg"></ion-img>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <form [formGroup]="loginForm" (ngSubmit)="logIn()">
+      <ion-list>
+        <ion-item>
+          <ion-label  position="stacked">Username</ion-label>
+          <ion-input [formControl]="usernameFormControl" placeholder="Username" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label  position="stacked">Mot de passe</ion-label>
+          <ion-input [formControl]="passwordFormControl" [type]="hide ? 'password' : 'text'" placeholder="mot de passe" required></ion-input>
+          <!-- <ion-icon name="eye-off-outline" (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">{{hide ? 'visibility_off' : 'visibility'}}</ion-icon> -->
+        </ion-item>
+        <a>
+          <p>Mot de passe oublié?</p>
+        </a>
+      </ion-list>
+
+      <ion-footer>
+          <ion-button expand="block" type="submit">Se connecter</ion-button>
+      </ion-footer>
+    </form>
+  </div>
+</ion-content>

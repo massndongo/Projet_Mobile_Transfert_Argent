@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Calculateur</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="padding">
+  <div id="container">
+      <ion-list>
+        <ion-item>
+          <ion-label  position="stacked">Infos</ion-label>
+          <ion-input  readonly>Pour une transaction de {{ montant }}, le frais est égal à:</ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input  readonly [value]="frais"></ion-input>
+        </ion-item>
+      </ion-list>
+      <ion-buttons>
+        <ion-button size="large" type="submit" color="#FA4A0C" id="depot">
+          <ion-icon name="mail-open-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+  </div>
+
+</ion-content>

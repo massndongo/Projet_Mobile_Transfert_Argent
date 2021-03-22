@@ -1,0 +1,90 @@
+ion-buttons ion-icon{
+  margin-left: 1rem;
+  position: absolute;
+  color: #51BFD0;
+}
+
+#header {
+  background-color: #E5E5E5;
+}
+
+ion-toolbar ion-img{
+  width: 50px;
+  height: 38,11px;
+  position: relative;
+  display: flex;
+  margin: 0 auto;
+}
+
+#container {
+  position: relative;
+  width: 90%;
+  text-align: center;
+  left: 5%;
+  right: 5%;
+  display: block;
+  height: 20em;
+  padding-top: 1em;
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+  color: #8c8c8c;
+  margin: 0;
+}
+
+#container a {
+  text-decoration: none;
+}
+
+#col {
+  background-color: white;
+  height: auto;
+  margin: 1em auto ;
+  text-align: left;
+  border-radius: 8px;
+  border-right: 1px solid whitesmoke;
+  border-left: 1px solid whitesmoke;
+  border-top: 1px solid whitesmoke;
+  border-bottom: 2px solid #51BFD0;
+}
+
+hr{
+  background-color: red;
+  height: 0.01em;
+}
+
+ion-tabs {
+  display: block;
+}
+
+ion-list{
+  position: relative;
+  width: 90%;
+  left: 5%;
+  right: 5%;
+  font-size: 12px;
+}
+
+ion-input{
+  font-size: 12px;
+}
+
+ion-button {
+  background: #FA4A0C;
+  position: relative;
+  float: right;
+  margin-right: 1rem;
+  width: 35%;
+  height: 2em;
+  display: block;
+  border-radius: 12px;
+  margin-top: 1em;
+  font-size: 12px;
+}

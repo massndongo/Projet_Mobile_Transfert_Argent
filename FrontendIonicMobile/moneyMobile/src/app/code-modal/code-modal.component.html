@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Transfert réussi</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="padding">
+  <div id="container">
+      <ion-list>
+        <ion-item>
+          <ion-label  position="stacked">Infos</ion-label>
+          <ion-input  readonly>Vous avez envoyé {{ montant }} à {{ nomBeneficiaire }} le {{ date | date }}</ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label  position="stacked">Code de transaction</ion-label>
+          <ion-input  readonly [value]="codeTrans"></ion-input>
+        </ion-item>
+      </ion-list>
+      <ion-buttons>
+        <ion-button (click)="sendSms()" size="large" id="annuler">
+          <ion-icon name="arrow-redo-outline"></ion-icon>
+        </ion-button>
+        <ion-button (click)="sendSms()" size="large" type="submit" color="#FA4A0C" id="depot">
+          <ion-icon name="mail-open-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+  </div>
+
+</ion-content>

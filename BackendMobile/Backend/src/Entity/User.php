@@ -20,7 +20,13 @@ use Symfony\Component\Security\Core\User\UserInterface;
  *          "method"="GET",
  *          "path"="/user/{id}/transactions",
  *          "normalization_context"= {"groups"={"userTransaction:read"}}
- *      }
+ *      },
+ * 
+ *    "getCompteByUsername"={
+ *          "method"="GET",
+ *          "path"="/user/{username}/compte",
+ *          "normalization_context"={"groups"={"getCompteByUserTelephone:read"}}
+ *    }
  *  }
  * )
  */
@@ -74,6 +80,7 @@ class User implements UserInterface
 
     /**
      * @ORM\ManyToOne(targetEntity=Agence::class, inversedBy="users")
+     * @Groups({"getCompteByUserTelephone:read"})
      */
     private $agence;
 
@@ -84,11 +91,13 @@ class User implements UserInterface
 
     /**
      * @ORM\OneToMany(targetEntity=Transaction::class, mappedBy="userDepot")
+     * @Groups({"userTransaction:read"})
      */
     private $transactionsUserDepot;
 
     /**
      * @ORM\OneToMany(targetEntity=Transaction::class, mappedBy="userRetrait")
+     * @Groups({"userTransaction:read"})
      */
     private $transactionsUserRetrait;
 

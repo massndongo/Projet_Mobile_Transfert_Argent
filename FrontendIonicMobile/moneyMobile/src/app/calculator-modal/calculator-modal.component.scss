@@ -1,0 +1,80 @@
+ion-toolbar{
+  height: auto;
+}
+
+#container {
+  text-align: center;
+  left: 1rem;
+  right: 1rem;
+  display: block;
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+  color: #8c8c8c;
+  margin: 0;
+}
+
+#container a {
+  text-decoration: none;
+}
+
+#col {
+  background-color: white;
+  height: auto;
+  margin: 1em auto ;
+  text-align: left;
+  border-radius: 8px;
+  border-right: 1px solid whitesmoke;
+  border-left: 1px solid whitesmoke;
+  border-top: 1px solid whitesmoke;
+  border-bottom: 2px solid #51BFD0;
+}
+
+hr{
+  background-color: red;
+  height: 0.01em;
+}
+
+ion-tabs {
+  display: block;
+}
+
+ion-item {
+  display: block;
+  height: 4em;
+  padding-top: 0px;
+  font-size: 13px;
+}
+
+ion-label{
+  color: black;
+  opacity: 0.5;
+}
+
+ion-buttons {
+  width: 96%;
+  position: relative;
+  margin: 0px auto;
+}
+
+#depot {
+  background-color: #FA4A0C;
+  width: 50%;
+  display: block;
+  margin: 0px auto;
+  border-radius: 6px;
+}
+
+#annuler {
+  width: 50%;
+  display: block;
+  margin: 0px auto;
+  border-radius: 4px;
+}

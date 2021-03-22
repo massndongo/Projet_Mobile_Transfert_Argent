@@ -2,7 +2,6 @@
 
 namespace App\Entity;
 
-use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\AgenceRepository;
 use Doctrine\Common\Collections\Collection;
@@ -10,6 +9,8 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Filter\Validator\Length;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints\Regex;
+use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=AgenceRepository::class)
@@ -45,6 +46,11 @@ class Agence
      * @ORM\Column(type="float")
      */
     private $longitude;
+        /**
+     * @ORM\OneToOne(targetEntity=Compte::class, inversedBy="agence", cascade={"persist", "remove"})
+     * @Groups({"getCompteByUserTelephone:read"})
+     */
+    private $compte;
 
     /**
      * @ORM\OneToMany(targetEntity=User::class, mappedBy="agence")
@@ -105,6 +111,17 @@ class Agence
     public function setLongitude(float $longitude): self
     {
         $this->longitude = $longitude;
+
+        return $this;
+    }
+    public function getCompte(): ?Compte
+    {
+        return $this->compte;
+    }
+
+    public function setCompte(?Compte $compte): self
+    {
+        $this->compte = $compte;
 
         return $this;
     }

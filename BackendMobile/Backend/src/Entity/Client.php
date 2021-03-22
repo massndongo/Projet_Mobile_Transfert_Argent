@@ -17,13 +17,6 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
  * @ORM\Entity(repositoryClass=ClientRepository::class)
  * @ApiFilter(SearchFilter::class, properties={"num_cni"})
  * @ApiResource(
- *      normalizationContext={"groups"={"client:read"}},
- *      collectionOperations={
- *          "get_user_cni"={
- *              "method"="GET",
- *              "path"="/user/client/cni"
- *          }
- *      }
  * )
  */
 class Client
@@ -53,7 +46,7 @@ class Client
     private $telephone;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      *@Assert\Length(min = 13, max = 13, minMessage = "min_lenght", maxMessage = "max_lenght")
      *@Assert\Regex(pattern="/^[0-9]{13}/", message="number_only") 
      * @Groups({"transactions:read"})

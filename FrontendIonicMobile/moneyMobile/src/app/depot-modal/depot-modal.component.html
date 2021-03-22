@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- <ion-buttons slot="end" (click)="closeModal()">
+      <ion-icon name="close" slot="icon-only"></ion-icon>
+    </ion-buttons> -->
+    <ion-title>Confirmation</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="padding">
+  <div id="container" *ngFor="let element of data">
+    <form [formGroup]="confirmDepot" (ngSubmit)="depot()">
+      <ion-list>
+        <ion-item>
+          <ion-label  position="stacked">Émetteur</ion-label>
+          <ion-input  readonly [value]="element.nomCompletEmetteur" placeholder="ex: Prénom et NOM" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label  position="stacked">N° CNI</ion-label>
+          <ion-input  readonly [value]="element.numCniEmetteur" placeholder="numéro de carte d'identité" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label  position="stacked">Téléphone</ion-label>
+          <ion-input  readonly [value]="element.telephoneEmetteur" placeholder="numéro de téléphone" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label  position="stacked">Bénéficiare</ion-label>
+          <ion-input  readonly [value]="element.nomCompletBeneficiaire" placeholder="ex: Prénom et NOM" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label  position="stacked">Téléphone</ion-label>
+          <ion-input  readonly [value]="element.telephoneBeneficiaire" placeholder="numéro de téléphone" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label  position="stacked">Montant</ion-label>
+          <ion-input  readonly [value]="element.montant" placeholder="montant" required></ion-input>
+        </ion-item>
+      </ion-list>
+      <ion-buttons>
+        <ion-button (click)="closeModal()" size="large" id="annuler">Annuler</ion-button>
+        <ion-button size="large" type="submit" color="#FA4A0C" id="depot">Confirmer</ion-button>
+      </ion-buttons>
+    </form>
+  </div>
+
+</ion-content>

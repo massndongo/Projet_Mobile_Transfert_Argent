@@ -37,7 +37,7 @@ class Transaction
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string")
      * @Groups({"compteTrans:read","transaction:read","transactions:read"})
      * @Groups({"userTransaction:read"})
      * 
@@ -113,22 +113,28 @@ class Transaction
     private $comptes;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Client::class, inversedBy="transactionsClientDepot")
+     * @ORM\ManyToOne(targetEntity=Client::class, inversedBy="transactionsClientDepot", cascade={"persist"})
+     * @Groups({"transaction:read","transactions:read"})
+     * @Groups({"userTransaction:read"})
      */
     private $clientDepot;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Client::class, inversedBy="transactionsClientRetrait")
+     * @ORM\ManyToOne(targetEntity=Client::class, inversedBy="transactionsClientRetrait", cascade={"persist"})
+     * @Groups({"transaction:read","transactions:read"})
+     * @Groups({"userTransaction:read"})
      */
     private $clientRetrait;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="transactionsUserDepot")
+     * @Groups({"transaction:read","transactions:read"})
      */
     private $userDepot;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="transactionsUserRetrait")
+     * @Groups({"transaction:read","transactions:read"})
      */
     private $userRetrait;
 

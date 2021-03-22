@@ -29,7 +29,7 @@ class Compte
      * @ORM\Column(type="integer")
      * @Groups({"compteTrans:read","transaction:read"})
      */
-    private $id;
+    protected $id;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -40,6 +40,7 @@ class Compte
     /**
      * @ORM\Column(type="integer")
      * @Groups({"transaction:read"})
+     * @Groups({"getCompteByUserTelephone:read"})
      */
     private $solde;
 
@@ -166,11 +167,20 @@ class Compte
 
     public function setAgence(?Agence $agence): self
     {
+        // unset the owning side of the relation if necessary
+        if ($agence === null && $this->agence !== null) {
+            $this->agences->setCompte(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($agence !== null && $agence->getCompte() !== $this) {
+            $agence->setCompte($this);
+        }
+
         $this->agence = $agence;
 
         return $this;
     }
-
     public function getUser(): ?User
     {
         return $this->user;

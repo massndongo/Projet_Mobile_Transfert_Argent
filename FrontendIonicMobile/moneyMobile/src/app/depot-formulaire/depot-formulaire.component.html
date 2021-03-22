@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="getBackHome()">
+      <ion-icon name="home-outline"></ion-icon>
+    </ion-buttons>
+    <ion-img src="../assets/icon/logo.jpeg"></ion-img>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="padding">
+  <ion-tabs>
+    <ion-tab-bar slot="top">
+      <ion-tab-button (click)="disabledBeneficiaire()">
+        <ion-label style="">Emetteur</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button (click)="disabledEmetteur()">
+        <ion-label>Bénéficiaire</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+  <div id="container">
+    <form [formGroup]="depotForm">
+        <ion-list [hidden]="disabledEmetteurInputs">
+          <ion-item>
+            <ion-label  position="stacked">N° CNI</ion-label>
+            <ion-input  [formControl]="cniEmetteurFormControl" (ionChange)="getClient()" placeholder="numéro de carte d'identité" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label  position="stacked">Nom Complet</ion-label>
+            <ion-input  [formControl]="nomCompletEmetteurFormControl" [value]="clientEmetteur.nomComplet" placeholder="ex: Prénom et NOM" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label  position="stacked">Téléphone</ion-label>
+            <ion-input  [formControl]="telephoneEmetteurFormControl" [value]="clientEmetteur.telephone" placeholder="numéro de téléphone" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label  position="stacked">Montant</ion-label>
+            <ion-input  [formControl]="montantFormControl" (ionChange)="fraisCalculator()" (ionChange)="totalToGive()" placeholder="montant" required></ion-input>
+          </ion-item>
+          <ion-item style="position:relative; display:block; float: right; width: 45%;">
+            <ion-label  position="stacked">Frais</ion-label>
+            <ion-input  [value]="frais.Frais" readonly placeholder="frais"></ion-input>
+          </ion-item>
+          <ion-item style="position:relative; display: block; float: left; width: 100%;">
+            <ion-label  position="stacked">Total</ion-label>
+            <ion-input  [value]="total" readonly placeholder="total"></ion-input>
+          </ion-item>
+        </ion-list>
+
+      <div [hidden]="disabledBeneficiaireInputs">
+        <ion-list>
+          <ion-item>
+            <ion-label  position="stacked">Nom Complet</ion-label>
+            <ion-input  [formControl]="nomCompletBeneficiaireFormControl" placeholder="ex: Prénom et NOM" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label  position="stacked">Téléphone</ion-label>
+            <ion-input  [formControl]="telephoneBeneficiaireFormControl" placeholder="numéro de téléphone" required></ion-input>
+          </ion-item>
+        </ion-list>
+      </div>
+    </form>
+  </div>
+
+  <ion-footer>
+    <ion-button (click)="nextPage()" size="large" color="#FA4A0C" [hidden]="hiddenForNext">Suivant</ion-button>
+    <ion-button (click)="showModal()"  size="large" color="#FA4A0C" [hidden]="hiddenForModal">Suivant</ion-button>
+  </ion-footer>
+
+</ion-content>

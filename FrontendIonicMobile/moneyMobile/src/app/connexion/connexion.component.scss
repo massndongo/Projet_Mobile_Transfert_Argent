@@ -1,0 +1,46 @@
+
+ion-img{
+  width: 143px;
+  height: 109px;
+  display: flex;
+  margin: 0 auto;
+  top : 121px;
+  left : 136px;
+}
+
+ion-footer {
+  padding-top: 5em;
+}
+
+ion-button {
+  --background: #07AEEF;
+}
+
+
+#container {
+    text-align: center;
+    position: absolute;
+    left: 1rem;
+    right: 1rem;
+}
+
+#container p{
+  text-align: center;
+  color: #07AEEF;
+  position: relative;
+  top: 1em;
+  right: 1.5rem;
+}
+
+#container a{
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+// #container input[type="submit"] {
+//   background: rgb(88, 143, 129);
+//   border-color: transparent;
+//   color: #fff;
+//   cursor: pointer;
+// }
