@@ -14,18 +14,15 @@
       <ion-row id="soldeRow">
         <ion-col size="10" id="col">
           <ion-label style="color: black;display: block;">Mon solde disponible</ion-label>
-          <ion-label style="color: #07AEEF;display: block;font-size:1.2em; font-weight: 600;" (ionChange)="comptes">{{comptes}}<p style="display:inline;color: black;">f cfa</p>
+          <ion-label style="color: #07AEEF;display: block;font-size:1.2em; font-weight: 600;" (ionChange)="comptes">{{comptes | slice:0:4 }}<p style="display:inline;color: black;">f cfa</p>
             <ion-icon name="eye-off-outline" style="float: right;"></ion-icon>
           </ion-label>
-          <!-- <ion-label style="color:black;font-size:0.7em;">Mise à jour le {{compte.dateCreation | date}} à {{compte.dateCreation | date:'h:mm'}}</ion-label> -->
         </ion-col>
       </ion-row>
     </ion-toolbar>
   </header>
 
   <div id="container">
-    <!-- <strong class="capitalize">{{ folder }}</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p> -->
     <ion-list id="inbox-list">
         <ion-item routerLink="/depot" lines="none" detail="false" id="label3">
           <ion-icon name="return-up-forward-outline"></ion-icon>
@@ -65,7 +62,7 @@
         </ion-item>
         <ion-item routerDirection="root" [routerLink]="" lines="none" detail="false">
           <ion-icon name="power-outline"></ion-icon>
-          <ion-label>Déconnection</ion-label>
+          <ion-label>Déconnexion</ion-label>
           <ion-icon name="chevron-forward-outline"></ion-icon>
           <hr>
         </ion-item>

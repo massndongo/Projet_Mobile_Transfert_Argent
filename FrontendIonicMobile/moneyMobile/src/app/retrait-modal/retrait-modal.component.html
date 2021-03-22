@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- <ion-buttons slot="end" (click)="closeModal()">
+      <ion-icon name="close" slot="icon-only"></ion-icon>
+    </ion-buttons> -->
+    <ion-title>Confirmation</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="padding">
+  <div id="container">
+    <form [formGroup]="confirmRetrait" (ngSubmit)="retraitTrans()">
+      <ion-list>
+        <ion-item>
+          <ion-label  position="stacked">Émetteur</ion-label>
+          <ion-input  readonly [value]="nomEmetteur" placeholder="ex: Prénom et NOM"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label  position="stacked">Téléphone</ion-label>
+          <ion-input  readonly [value]="telephoneEmetteur" placeholder="numéro de téléphone"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label  position="stacked">Bénéficiare</ion-label>
+          <ion-input  readonly [value]="nomBeneficiaire" placeholder="ex: Prénom et NOM"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label  position="stacked">Téléphone</ion-label>
+          <ion-input  readonly [value]="telephone" placeholder="numéro de téléphone"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label  position="stacked">Montant</ion-label>
+          <ion-input  readonly [value]="montant" placeholder="montant"></ion-input>
+        </ion-item>
+      </ion-list>
+      <ion-buttons>
+        <ion-button (click)="closeModal()" size="large" id="annuler">Annuler</ion-button>
+        <ion-button size="large" type="submit" color="#FA4A0C" id="depot">Confirmer</ion-button>
+      </ion-buttons>
+    </form>
+  </div>
+
+</ion-content>

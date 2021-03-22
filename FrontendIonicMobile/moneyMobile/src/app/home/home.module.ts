@@ -1,3 +1,4 @@
+import { RetraitFormulaireComponent } from './../retrait-formulaire/retrait-formulaire.component';
 import { FraisCalculatorComponent } from './../frais-calculator/frais-calculator.component';
 import { CodeModalComponent } from './../code-modal/code-modal.component';
 import { DepotModalComponent } from './../depot-modal/depot-modal.component';
@@ -30,6 +31,8 @@ import { HomePage } from './home.page';
     DepotModalComponent,
     CodeModalComponent,
     FraisCalculatorComponent,
+    RetraitFormulaireComponent,
+    RetraitFormulaireComponent
   ]
 })
 export class HomePageModule {}

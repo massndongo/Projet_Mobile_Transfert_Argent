@@ -38,6 +38,6 @@ export class FraisCalculatorComponent implements OnInit {
   }
 
   getBackHome(){
-    return this.router.navigate(['/acceuil']);
+    return this.router.navigateByUrl('accueil');
   }
 }

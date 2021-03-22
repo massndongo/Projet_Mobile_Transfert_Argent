@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class TransactionService {
+  private url = "http://127.0.0.1:8000";
   private fraisUrl = "http://127.0.0.1:8000/api/user/frais";
   private transactionsUrl = "http://127.0.0.1:8000/api/user/transactions/depot";
 
@@ -20,5 +21,11 @@ export class TransactionService {
   }
   getTotal (frais:number, montant: number){
     return this.http.get(`http://127.0.0.1:8000/api/user/totalToGive/${frais}/${montant}`);
+  }
+  getTransactionByCode(code: string){
+    return this.http.get(`${this.url}/api/user/transaction/${code}`)
+  }
+  retrait(data){
+    return this.http.put(`${this.url}/api/user/transactions/retrait`, data);
   }
 }

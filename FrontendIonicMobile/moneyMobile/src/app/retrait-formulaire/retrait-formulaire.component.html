@@ -1,3 +1,88 @@
-<p>
-  retrait-formulaire works!
-</p>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="getBackHome()">
+      <ion-icon name="home-outline"></ion-icon>
+    </ion-buttons>
+    <ion-img src="../assets/icon/logo.jpeg"></ion-img>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="padding">
+
+  <div id="container">
+    <form [formGroup]="retraitForm">
+      <div>
+        <ion-list>
+          <ion-item>
+            <ion-label  position="stacked">Code</ion-label>
+            <ion-input  [formControl]="codeFormControl" (ionChange)="getTransByCode()" placeholder="xxx-xxx-xxx" required></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-tabs>
+              <ion-tab-bar>
+                <ion-tab-button (click)="disabledEmetteur()">
+                  <ion-label>Bénéficiaire</ion-label>
+                </ion-tab-button>
+
+                <ion-tab-button (click)="disabledBeneficiaire()">
+                  <ion-label>Emetteur</ion-label>
+                </ion-tab-button>
+              </ion-tab-bar>
+            </ion-tabs>
+          </ion-item>
+        </ion-list>
+        <ion-list [hidden]="disabledBeneficiaireInputs == true">
+          <ion-item>
+            <ion-label  position="stacked">N° CNI</ion-label>
+            <ion-input  [formControl]="cniBeneficiaireFormControl" placeholder="numéro de carte d'identité" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label  position="stacked">Nom Complet</ion-label>
+            <ion-input  [formControl]="nomCompletBeneficiaireFormControl" [value]="clientBeneficiaire.nomComplet" readonly></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label  position="stacked">Téléphone</ion-label>
+            <ion-input  [formControl]="telephoneBeneficiaireFormControl" [value]="clientBeneficiaire.telephone" placeholder="telephone" readonly></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label  position="stacked">Montant à recevoir</ion-label>
+            <ion-input  [formControl]="montantFormControl" [value]="transInfo.montant" readonly></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label  position="stacked">Date de dépot</ion-label>
+            <ion-input  [value]="transInfo.dateDepot" readonly></ion-input>
+          </ion-item>
+        </ion-list>
+      </div>
+
+      <div>
+      <ion-list [hidden]="disabledEmetteurInputs == true">
+        <ion-item>
+          <ion-label  position="stacked">N° CNI</ion-label>
+          <ion-input  [value]="clientEmetteur.num_cni" readonly></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label  position="stacked">Nom Complet</ion-label>
+          <ion-input  [value]="clientEmetteur.nomComplet" readonly></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label  position="stacked">Montant envoyer</ion-label>
+          <ion-input  [value]="transInfo.montant" readonly></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label  position="stacked">Téléphone</ion-label>
+          <ion-input  [value]="clientEmetteur.telephone" readonly></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label  position="stacked">Date de dépot</ion-label>
+          <ion-input  [value]="transInfo.dateDepot" readonly></ion-input>
+        </ion-item>
+      </ion-list>
+      </div>
+
+      <ion-button (click)="showModal()" size="large" color="#FA4A0C">Retirer</ion-button>
+    </form>
+  </div>
+
+</ion-content>

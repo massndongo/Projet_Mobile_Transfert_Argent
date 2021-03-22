@@ -17,7 +17,7 @@ export class DepotFormulaireComponent implements OnInit {
   hiddenForModal = true;
   hiddenForNext = false;
   disabled = false;
-  clientEmetteur = [];
+  clientEmetteur: any;
 
   frais = 0;
   total = 0;
@@ -51,7 +51,7 @@ export class DepotFormulaireComponent implements OnInit {
     });
   }
   getBackHome(){
-    return this.router.navigate(['/acceuil']);
+    return this.router.navigateByUrl('accueil');
   }
 
   disabledBeneficiaire(){
